@@ -27,7 +27,9 @@ class GetHandler(BaseHTTPRequestHandler):
 
 def schedule():
     while 1:
-        register_proxy()
+        try:
+            register_proxy()
+        except Exception as e: print(e)
         time.sleep(10)
 
 # makes our logic non blocking
