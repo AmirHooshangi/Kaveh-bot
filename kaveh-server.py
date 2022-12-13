@@ -53,20 +53,20 @@ def echo(update: Update, context: CallbackContext) -> None:
 def main() -> None:
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
- #   updater = Updater("5930875085:AAHwLEBMYuB5-jTJjQBa8pxC_ihi6d8sg6U")
+    updater = Updater("5930875085:AAHwLEBMYuB5-jTJjQBa8pxC_ihi6d8sg6U")
 
     # Get the dispatcher to register handlers
- #   dispatcher = updater.dispatcher
+    dispatcher = updater.dispatcher
 
     # on different commands - answer in Telegram
- #   dispatcher.add_handler(CommandHandler("start", start))
- #   dispatcher.add_handler(CommandHandler("help", help_command))
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("help", help_command))
 
     # on non command i.e message - echo the message on Telegram
- #   dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
 
     # Start the Bot
-    #updater.start_polling()
+    updater.start_polling()
 
     with socketserver.TCPServer(("", PORT), GetHandler) as httpd:
         print("serving at port", PORT)
