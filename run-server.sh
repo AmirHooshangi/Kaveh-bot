@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pip install telegram
+pip3 install telegram
