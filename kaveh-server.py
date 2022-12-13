@@ -8,6 +8,7 @@ import socketserver
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 import random
+import http.client
 
 ip_list = set()
 
@@ -46,7 +47,8 @@ def echo(update: Update, context: CallbackContext) -> None:
         update.message.reply_text("Alan mifrestam dawsh")
     elif value == "2":
         random_ip = random.sample(ip_list, k=1)
-        update.message.reply_text(random_ip)
+        connection = http.client.HTTPConnection(random_ip[0])
+        update.message.reply_text(connection.request("GET", "/vpn_hash"))
     else:
         update.message.reply_text("You've Entered a wrong value")
 

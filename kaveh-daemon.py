@@ -21,9 +21,11 @@ class GetHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if '/daemon' in self.path:
-            print("I was called")
+            print("generating vpn hash")
             self.send_response_only(200)
-            self.wfile.write('Hello World'.encode())
+            #TODO: generate from command line
+            self.wfile.write('vmess://eyJhZGQiOiIxMDQuMjQ4LjI1My4xNzUiLCAiYWlkIjoiMCIsICJob3N0IjoiIiwgImlkIjoiYmQyMmQzYzItMmZmMy00NDhkLThhMDYtMDFhNGE4YWIyOTI0IiwgIm5ldCI6IndzIiwgInBhdGgiOiIvZ3JhcGhxbCIsICJwb3J0IjoiODAiLCAicHMiOiJzaGVrYXJpLzIwMjItMTItMTMiLCAidGxzIjoiIiwgInR5cGUiOiJub25lIiwgInYiOiIyIn0K'.encode())
+
 
 def schedule():
     while 1:
