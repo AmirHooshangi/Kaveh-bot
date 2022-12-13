@@ -7,6 +7,7 @@ import socketserver
 
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
+import random
 
 ip_list = set()
 
@@ -44,7 +45,7 @@ def echo(update: Update, context: CallbackContext) -> None:
     if value == "1":
         update.message.reply_text("Alan mifrestam dawsh")
     elif value == "2":
-        update.message.reply_text("Halle Dawsh")
+        update.message.reply_text(random.sample(ip_list))
     else:
         update.message.reply_text("You've Entered a wrong value")
 
