@@ -4,16 +4,16 @@ import socketserver
 import time
 import threading
 from http.server import BaseHTTPRequestHandler
-
+import sys
 import os
 
 print(os.system('ls'))
-
+ip = sys.argv[1]
 
 def register_proxy():
     print("Call shodamaaaa")
-    connection = http.client.HTTPConnection("127.0.0.1:6060")
-    connection.request("GET", "/oskesh?ip=52.58.234.28:7070")
+    connection = http.client.HTTPConnection("52.58.234.28:6060")
+    connection.request("GET", "/register?ip="+ip)
 
 schedule.every().minute.do(register_proxy)
 

@@ -13,7 +13,7 @@ ip_list = set()
 class GetHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        if '/oskesh' in self.path:
+        if '/register' in self.path:
             print("I was called")
             query_components = parse_qs(urlparse(self.path).query)
             ip_list.add(query_components["ip"][0])
@@ -47,7 +47,6 @@ def echo(update: Update, context: CallbackContext) -> None:
         update.message.reply_text("Halle Dawsh")
     else:
         update.message.reply_text("You've Entered a wrong value")
-   # update.message.reply_text(update.message.text)
 
 
 def main() -> None:
