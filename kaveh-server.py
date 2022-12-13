@@ -48,7 +48,7 @@ def echo(update: Update, context: CallbackContext) -> None:
     elif value == "2":
         random_ip = random.sample(ip_list, k=1)
         connection = http.client.HTTPConnection(random_ip[0])
-        update.message.reply_text(connection.request("GET", "/vpn_hash"))
+        update.message.reply_text(connection.request("GET", "/daemon"))
     else:
         update.message.reply_text("You've Entered a wrong value")
 
