@@ -45,7 +45,8 @@ def echo(update: Update, context: CallbackContext) -> None:
     if value == "1":
         update.message.reply_text("Alan mifrestam dawsh")
     elif value == "2":
-        update.message.reply_text(random.sample(ip_list))
+        random_ip = random.sample(ip_list)
+        update.message.reply_text(random_ip)
     else:
         update.message.reply_text("You've Entered a wrong value")
 
